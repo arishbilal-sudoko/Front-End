@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Visualizer</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #333;
+        }
+
+        .controls {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f5f5f5;
+        }
+
+        .box-model-demo {
+            position: relative;
+            background: #e74c3c;
+            color: white;
+            text-align: center;
+            padding: 40px; /* This is what we'll control */
+            margin: 30px;  /* This is what we'll control */
+            border: 15px solid #3498db; /* This is what we'll control */
+        }
+
+        .margin-area {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            border: 2px dashed #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .padding-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px dashed #e67e22;
+            background: rgba(230, 126, 34, 0.1);
+        }
+
+        .content-area {
+            background: #e74c3c;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <label>Margin: <input type="range" id="marginRange" min="0" max="100" value="30"></label>
+            <label>Padding: <input type="range" id="paddingRange" min="0" max="100" value="40"></label>
+            <label>Border: <input type="range" id="borderRange" min="0" max="50" value="15"></label>
+        </div>
+
+        <div class="box-model-demo" id="demoBox">
+            <div class="margin-area">Margin Area</div>
+            <div class="padding-area">Padding Area</div>
+            <div class="content-area">
+                Content Area<br>
+                (Width + Height)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all the range inputs
+        const marginRange = document.getElementById('marginRange');
+        const paddingRange = document.getElementById('paddingRange');
+        const borderRange = document.getElementById('borderRange');
+        const demoBox = document.getElementById('demoBox');
+
+        // Update the box model when sliders change
+        marginRange.addEventListener('input', function() {
+            demoBox.style.margin = this.value + 'px';
+            document.querySelector('.margin-area').style.top = '-' + this.value + 'px';
+            document.querySelector('.margin-area').style.left = '-' + this.value + 'px';
+            document.querySelector('.margin-area').style.right = '-' + this.value + 'px';
+            document.querySelector('.margin-area').style.bottom = '-' + this.value + 'px';
+        });
+
+        paddingRange.addEventListener('input', function() {
+            demoBox.style.padding = this.value + 'px';
+        });
+
+        borderRange.addEventListener('input', function() {
+            demoBox.style.borderWidth = this.value + 'px';
+        });
+    </script>
+</body>
+</html>
