@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>DOM Playground</h1>
+
+    <!-- TASK SECTION -->
+
+    <div class="card">
+
+        <h2>Tasks</h2>
+
+        <button onclick="addTask()">Add Task</button>
+
+        <button onclick="removeLastTask()">Remove Last</button>
+
+        <button onclick="clearTasks()">Clear All</button>
+
+        <br><br>
+
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter task"
+        >
+
+        <button onclick="addCustomTask()">
+            Add Custom
+        </button>
+
+    </div>
+
+    <!-- COUNTER -->
+
+    <div class="card">
+
+        <h2>Counter</h2>
+
+        <h1 id="count">0</h1>
+
+        <button onclick="increaseCount()">+</button>
+
+        <button onclick="decreaseCount()">-</button>
+
+        <button onclick="resetCount()">Reset</button>
+
+    </div>
+
+    <!-- STYLE -->
+
+    <div class="card">
+
+        <h2>Style Controls</h2>
+
+        <button onclick="changeBackground()">
+            Background
+        </button>
+
+        <button onclick="toggleBorder()">
+            Border
+        </button>
+
+        <button onclick="fontUp()">
+            A+
+        </button>
+
+        <button onclick="fontDown()">
+            A-
+        </button>
+
+    </div>
+
+    <!-- COLOR BOX -->
+
+    <div class="card">
+
+        <h2>Color Box</h2>
+
+        <div id="box"></div>
+
+        <br>
+
+        <button onclick="changeColor('red')">
+            Red
+        </button>
+
+        <button onclick="changeColor('blue')">
+            Blue
+        </button>
+
+        <button onclick="changeColor('green')">
+            Green
+        </button>
+
+        <button onclick="changeColor('random')">
+            Random
+        </button>
+
+    </div>
+
+    <!-- OUTPUT AREA -->
+
+    <div id="mainBox">
+
+        <h2>Tasks Added</h2>
+
+        <div id="taskList"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
